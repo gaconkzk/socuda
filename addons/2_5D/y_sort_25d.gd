@@ -4,7 +4,7 @@
 # sorting is delayed by one frame.
 tool
 extends Node # Note: NOT Node2D, Node25D, or YSort
-class_name YSort25D, "res://addons/node2dot5/icons/ysort25d_icon.png"
+class_name YSort25D, "res://addons/2_5D/icons/ysort25d_icon.png"
 
 # Whether or not to automatically call sort() in _process().
 export(bool) var sort_enabled := true

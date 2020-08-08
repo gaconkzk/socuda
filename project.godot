@@ -51,7 +51,7 @@ _global_script_class_icons={
 "Node25D": "res://addons/2_5D/icons/node25d_icon.png",
 "ShadowMath25D": "res://addons/2_5D/icons/shadowmath25d_icon.png",
 "Transform25D": "",
-"YSort25D": ""
+"YSort25D": "res://addons/2_5D/icons/ysort25d_icon.png"
 }
 
 [application]
