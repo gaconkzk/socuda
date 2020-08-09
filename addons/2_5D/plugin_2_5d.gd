@@ -14,15 +14,11 @@ func _enter_tree():
   
   make_visible(false)
 
-  add_custom_type("Node25D", "Node2D",
-  preload("Node_2.5.gd"),
-  preload("icons/node25d_icon.png"))
-  add_custom_type("YSort25D", "Node",
-  preload("y_sort_25d.gd"),
-  preload("icons/ysort25d_icon.png"))
-  add_custom_type("ShadowMath25D", "KinematicBody",
-  preload("ShadowMath.gd"),
-  preload("icons/shadowmath25d_icon.png"))
+  # add_custom_type("Basic25D", "Node2D", preload("Basic.gd"), preload("icons/node25d_icon.png"))
+  # add_custom_type("Node25D", "Node25D", preload("Node_2.5.gd"), preload("icons/node25d_icon.png"))
+  add_custom_type("Extd25D", "Node25D", preload("Extd25D.gd"), preload("icons/node25d_icon.png"))
+  add_custom_type("YSort25D", "Node", preload("y_sort_25d.gd"), preload("icons/ysort25d_icon.png"))
+  add_custom_type("ShadowMath25D", "KinematicBody", preload("ShadowMath.gd"), preload("icons/shadowmath25d_icon.png"))
 
 func _exit_tree():
   remove_custom_type("ShadowMath25D")

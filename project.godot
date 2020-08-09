@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "Basis25D",
+"base": "Node2D",
+"class": "Basic25D",
 "language": "GDScript",
-"path": "res://addons/2_5D/Basis.gd"
+"path": "res://addons/2_5D/Basic.gd"
 }, {
 "base": "Reference",
 "class": "CollectionsUtil",
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 }, {
-"base": "Node2D",
+"base": "Basic25D",
 "class": "Node25D",
 "language": "GDScript",
 "path": "res://addons/2_5D/Node_2.5.gd"
@@ -45,7 +45,7 @@ _global_script_classes=[ {
 "path": "res://addons/2_5D/y_sort_25d.gd"
 } ]
 _global_script_class_icons={
-"Basis25D": "",
+"Basic25D": "res://addons/2_5D/icons/node25d_icon.png",
 "CollectionsUtil": "",
 "GitAPI": "",
 "Node25D": "res://addons/2_5D/icons/node25d_icon.png",

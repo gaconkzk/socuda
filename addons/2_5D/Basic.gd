@@ -7,7 +7,8 @@
 # Meaning, a top-down view has a Y axis component of (0, 0), with a Z axis component of (0, 1).
 # For a front side view, Y is (0, -1) and Z is (0, 0).
 # Remember that Godot's 2D mode has the Y axis pointing DOWN on the screen.
-class_name Basis25D
+extends Node2D
+class_name Basic25D, "icons/node25d_icon.png"
 
 enum PERSPECTIVE { top_down, front_side, forty_five, isometric, oblique_y, oblique_z }
 
@@ -15,12 +16,20 @@ var perspective = PERSPECTIVE.forty_five setget set_perspective
 
 var SCALE = 32
 
+export(int) var pixel_scale = SCALE setget set_pixel_scale, get_pixel_scale
+
 var x: Vector2 = Vector2()
 var y: Vector2 = Vector2()
 var z: Vector2 = Vector2()
 
 func _init():
   set_perspective(perspective)
+
+func set_pixel_scale(value: int = 32):
+  pixel_scale = value
+
+func get_pixel_scale():
+  return pixel_scale
 
 func set_perspective(value):
   perspective = value
@@ -39,9 +48,9 @@ func set_perspective(value):
       oblique_z()
 
 func _perspective(xx, xy, yx, yy, zx, zy):
-  x = SCALE * Vector2(xx, xy)
-  y = SCALE * Vector2(yx, yy)
-  z = SCALE * Vector2(zx, zy)
+  x = pixel_scale * Vector2(xx, xy)
+  y = pixel_scale * Vector2(yx, yy)
+  z = pixel_scale * Vector2(zx, zy)
 
 func top_down():
   _perspective(1, 0, 0, 0, 0, 1)

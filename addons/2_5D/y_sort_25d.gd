@@ -8,12 +8,11 @@ class_name YSort25D, "res://addons/2_5D/icons/ysort25d_icon.png"
 
 # Whether or not to automatically call sort() in _process().
 export(bool) var sort_enabled := true
-var _parent_node: Node2D # NOT Node25D
 
+var _parent_node: Node2D # NOT Node25D
 
 func _ready():
   _parent_node = get_parent()
-
 
 func _process(_delta):
   if sort_enabled:
