@@ -14,7 +14,7 @@ onready var viewport_2d = $Viewport2D
 onready var viewport_overlay = $ViewportOverlay
 onready var view_mode_button_group: ButtonGroup = $"../TopBar/ViewModeButtons/45Degree".group
 onready var zoom_label: Label = $"../TopBar/Zoom/ZoomPercent"
-onready var gizmo_25d_scene = preload("res://addons/2_5D/main_screen/gizmo_25d.tscn")
+onready var gizmo_25d_scene = preload("gizmo_25d.tscn")
 
 func _ready():
   # Give Godot a chance to fully load the scene. Should take two frames.

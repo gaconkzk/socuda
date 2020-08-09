@@ -14,9 +14,7 @@ enum PERSPECTIVE { top_down, front_side, forty_five, isometric, oblique_y, obliq
 
 var perspective = PERSPECTIVE.forty_five setget set_perspective
 
-var SCALE = 32
-
-export(int) var pixel_scale = SCALE setget set_pixel_scale, get_pixel_scale
+export(int) var pixel_scale = 32 setget set_pixel_scale, get_pixel_scale
 
 var x: Vector2 = Vector2()
 var y: Vector2 = Vector2()

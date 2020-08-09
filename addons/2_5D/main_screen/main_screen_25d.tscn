@@ -3,8 +3,6 @@
 [ext_resource path="res://addons/2_5D/main_screen/viewport_25d.gd" type="Script" id=1]
 [ext_resource path="res://addons/2_5D/main_screen/view_mode_button_group.tres" type="ButtonGroup" id=2]
 
-
-
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport25D/Viewport2D")
 
@@ -23,13 +21,13 @@ __meta__ = {
 }
 
 [node name="TopBar" type="HBoxContainer" parent="."]
-margin_right = 1600.0
+margin_right = 2304.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 
 [node name="ViewModeButtons" type="HBoxContainer" parent="TopBar"]
-margin_right = 798.0
+margin_right = 1150.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 
@@ -94,23 +92,23 @@ __meta__ = {
 }
 
 [node name="Zoom" type="HBoxContainer" parent="TopBar"]
-margin_left = 802.0
-margin_right = 1600.0
+margin_left = 1154.0
+margin_right = 2304.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="ZoomOut" type="Button" parent="TopBar/Zoom"]
-margin_left = 680.0
-margin_right = 710.0
+margin_left = 1032.0
+margin_right = 1062.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 30, 0 )
 text = "-"
 
 [node name="ZoomPercent" type="Label" parent="TopBar/Zoom"]
-margin_left = 714.0
+margin_left = 1066.0
 margin_top = 9.0
-margin_right = 764.0
+margin_right = 1116.0
 margin_bottom = 23.0
 rect_min_size = Vector2( 50, 0 )
 text = "100%"
@@ -126,16 +124,16 @@ __meta__ = {
 }
 
 [node name="ZoomIn" type="Button" parent="TopBar/Zoom"]
-margin_left = 768.0
-margin_right = 798.0
+margin_left = 1120.0
+margin_right = 1150.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 30, 0 )
 text = "+"
 
 [node name="Viewport25D" type="ColorRect" parent="."]
 margin_top = 36.0
-margin_right = 1600.0
-margin_bottom = 900.0
+margin_right = 2304.0
+margin_bottom = 1320.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3

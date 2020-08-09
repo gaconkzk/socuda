@@ -1,5 +1,6 @@
 # This node converts a 3D pointion to 2D using a 2.5D transformation matrix
 # The transformation of its 2D form is controlled by its 3D child.
+tool
 extends Basic25D
 class_name Node25D, "icons/node25d_icon.png"
 
@@ -18,6 +19,13 @@ export(Vector3) var spatial_position setget set_spatial_position, get_spatial_po
 var _spatial_position: Vector3
 var _spatial_node: Spatial
 
+func _get_configuration_warning():
+  if !_spatial_node:
+    return "Missing spatial node, please add one"
+  if _spatial_node.name != "math":
+    return "Spatial node name must be `math`"
+  return ""
+
 # These are separated in case anyone wishes to easily extend Node25D
 func _ready():
   Node25D_ready()
@@ -31,6 +39,8 @@ func _math_filter(node) -> bool:
 # Call this method in _Ready, or before you run Node25DProcess.
 func Node25D_ready():
   _spatial_node = CollectionsUtil.find(funcref(self, "_math_filter"), get_children())
+  if !_spatial_node:
+    update_configuration_warning()
 
 # Call this method in _Process, or whenever the position of this object changes.
 func Node25D_process():

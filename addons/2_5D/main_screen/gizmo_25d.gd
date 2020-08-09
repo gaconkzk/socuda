@@ -52,25 +52,26 @@ func _process(_delta):
     _moving = true
     _start_position = mouse_position
   
-  if _moving:
-    # Change modulate of unselected axes.
-    lines[(dominant_axis + 1) % 3].modulate.a = 0.5
-    lines[(dominant_axis + 2) % 3].modulate.a = 0.5
-    # Calculate mouse movement and reset for next frame.
-    var mouse_diff = mouse_position - _start_position
-    _start_position = mouse_position
-    # Calculate movement.
-    var projected_diff = mouse_diff.project(lines[dominant_axis].points[1])
-    var movement = projected_diff.length() / Node25D.SCALE
-    if is_equal_approx(PI, projected_diff.angle_to(lines[dominant_axis].points[1])):
-      movement *= -1
-    # Apply movement.
-    spatial_node.transform.origin += spatial_node.transform.basis[dominant_axis] * movement
-  else:
-    # Make sure the gizmo is located at the object.
-    global_position = node_25d.global_position
-    if ROUGHLY_ROUND_TO_PIXELS:
-      spatial_node.transform.origin = (spatial_node.transform.origin * Node25D.SCALE).round() / Node25D.SCALE
+  if spatial_node:
+    if _moving:
+      # Change modulate of unselected axes.
+      lines[(dominant_axis + 1) % 3].modulate.a = 0.5
+      lines[(dominant_axis + 2) % 3].modulate.a = 0.5
+      # Calculate mouse movement and reset for next frame.
+      var mouse_diff = mouse_position - _start_position
+      _start_position = mouse_position
+      # Calculate movement.
+      var projected_diff = mouse_diff.project(lines[dominant_axis].points[1])
+      var movement = projected_diff.length() / Node25D.SCALE
+      if is_equal_approx(PI, projected_diff.angle_to(lines[dominant_axis].points[1])):
+        movement *= -1
+      # Apply movement.
+      spatial_node.transform.origin += spatial_node.transform.basis[dominant_axis] * movement
+    else:
+      # Make sure the gizmo is located at the object.
+      global_position = node_25d.global_position
+      if ROUGHLY_ROUND_TO_PIXELS:
+        spatial_node.transform.origin = (spatial_node.transform.origin * Node25D.SCALE).round() / Node25D.SCALE
   # Move the gizmo lines appropriately.
   lines_root.global_position = node_25d.global_position
   node_25d.property_list_changed_notify()
@@ -79,11 +80,11 @@ func _process(_delta):
 # Initializes after _ready due to the onready vars, called manually in Viewport25D.gd.
 # Sets up the points based on the basis values of the Node25D.
 func initialize():
-  var basis = node_25d.get_basis()
+  var basic = node_25d.get_basis()
   for i in range(3):
-    lines[i].points[1] = basis[i] * 3
+    lines[i].points[1] = basic[i] * 3
   global_position = node_25d.global_position
-  spatial_node = node_25d.get_child(0)
+  spatial_node = node_25d.get_spatial()
 
 
 # Figures out if the mouse is very close to a segment. This method is

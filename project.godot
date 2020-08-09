@@ -57,6 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Socuda"
+run/main_scene="res://exp_001.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
